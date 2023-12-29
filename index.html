@@ -19,8 +19,19 @@
 </head>
 <body>
     <div class="backgroundImg">
+        <div class="stars"></div>
         <img src="./public/starbg.jpg" alt="backgroundImg"/>
-    </div>
+    </div>    
+    <script>
+    const stars = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        stars.appendChild(star);
+    }
+</script>
     <header>
 
         <img src="./public/Angeloimg1.jpg" alt="profile-picture"/>
