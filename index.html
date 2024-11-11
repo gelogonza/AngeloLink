@@ -7,63 +7,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link 
-        href="https://fonts.googleapis.com/css2?family=NTR&family=Open+Sans:ital
-        ,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+        href="https://fonts.googleapis.com/css2?family=NTR&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
         crossorigin="anonymous" 
         referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="backgroundImg">
-        <div class="stars"></div>
-        <img src="./public/starbg.jpg " alt="backgroundImg"/>
-    </div>    
+    <div class="starfield" id="starfield"></div>
+    <div class="container">
+        <header>
+            <img src="./public/Angeloimg1.jpg" alt="profile-picture"/>
+            <h1>Angelo Gonzalez</h1>
+            <p>See what I'm up to.</p>
+        </header>
+        <main>
+            <a href="https://www.instagram.com/gelo.gonza/" target="_blank" class="link">
+                <div class="linkBackground"></div>
+                <p>Instagram</p>
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://angelogonza.netlify.app/" target="_blank" class="link">
+                <div class="linkBackground"></div>
+                <p>Personal Website</p>
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="https://www.github.com/gelogonza" target="_blank" class="link">
+                <div class="linkBackground"></div>
+                <p>Github</p>
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="./public/Angelo_Resume.pdf" target="_blank" class="link">
+                <div class="linkBackground"></div>
+                <p>Resume</p>
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/angelo-gonza/" target="_blank" class="link">
+                <div class="linkBackground"></div>
+                <p>LinkedIn</p>
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </main>
+    </div>
     <script>
-    const stars = document.querySelector('.stars');
-    for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        stars.appendChild(star);
-    }
-</script>
-    <header>
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 400; // Increased from 200 to 400
 
-        <img src="./public/Angeloimg1.jpg" alt="profile-picture"/>
-        <h1>Angelo Gonzalez</h1>
-        <p>See what I'm up to.</p>
-    </header>
-    <main>
-        <a href="https://www.instagram.com/gelo.gonza/" target="_blank" class="link">
-            <div class="linkBackground"></div>
-            <p>Instagram</p>
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.gelogonza.com" target="_blank" class="link">
-            <div class="linkBackground"></div>
-            <p>Personal Website</p>
-            <i class="fa-solid fa-user"></i>
-        </a>
-        <a href="https://www.github.com/gelogonza" target="_blank" class="link">
-            <div class="linkBackground"></div>
-            <p>Github</p>
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="./public/Angelo_Resume.pdf" target="_blank" class="link">
-            <div class="linkBackground"></div>
-            <p>Resume</p>
-            <i class="fa-regular fa-envelope"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/angelo-gonza/" target="_blank" class="link">
-            <div class="linkBackground"></div>
-            <p>LinkedIn</p>
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </main>
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'stars';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+
+                if (Math.random() > 0.5) {
+                    star.style.animation = `twinkle ${Math.random() * 5 + 5}s linear infinite`;
+                } else {
+                    star.style.animation = `move ${Math.random() * 100 + 50}s linear infinite`;
+                }
+
+                starfield.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
 </body>
 </html>
