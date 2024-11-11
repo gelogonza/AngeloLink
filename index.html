@@ -29,7 +29,7 @@
                 <p>Instagram</p>
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://angelogonza.netlify.app/" target="_blank" class="link">
+            <a href="https://www.gelogonza.com" target="_blank" class="link">
                 <div class="linkBackground"></div>
                 <p>Personal Website</p>
                 <i class="fa-solid fa-user"></i>
@@ -54,7 +54,8 @@
     <script>
         function createStars() {
             const starfield = document.getElementById('starfield');
-            const starCount = 400; // Increased from 200 to 400
+            const starCount = 400;
+            const colors = ['#ffffff', '#00a8ff', '#ffa500', '#ff69b4']; // White, Blue, Orange, Pink
 
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
@@ -63,6 +64,7 @@
                 star.style.top = `${Math.random() * 100}%`;
                 star.style.animationDuration = `${Math.random() * 3 + 2}s`;
                 star.style.animationDelay = `${Math.random() * 3}s`;
+                star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
                 if (Math.random() > 0.5) {
                     star.style.animation = `twinkle ${Math.random() * 5 + 5}s linear infinite`;
