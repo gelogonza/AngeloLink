@@ -1,22 +1,23 @@
-/* Basic Reset and Body Styles */
+/* Reset margin and padding for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Main body styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    background-color: #0c001c;
+    font-family: 'Poppins', sans-serif; /* Sets main font */
+    color: #ffffff; /* Text color */
+    background-color: #0c001c; /* Background color */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+    min-height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevents scrolling */
 }
 
-/* Container Styles */
+/* Container Styles: centers content on the page */
 .container {
     z-index: 1;
     text-align: center;
@@ -25,7 +26,7 @@ body {
     width: 90%;
 }
 
-/* Header Styles */
+/* Header styling for profile section */
 header {
     margin-bottom: 30px;
 }
@@ -33,41 +34,42 @@ header {
 header img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    border: 3px solid #ffffff;
+    border-radius: 50%; /* Circular profile image */
+    border: 3px solid #ffffff; /* White border around profile picture */
     margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 24px; /* Title font size */
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 16px;
-    color: #cccccc;
+    color: #cccccc; /* Subtle gray for header paragraph */
     margin-bottom: 20px;
 }
 
-/* Link Styles */
+/* Link button styles */
 .link {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Slight transparent background */
     color: #ffffff;
     text-decoration: none;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Keeps gradient within bounds */
 }
 
+/* Hover effect for link buttons */
 .link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly darker on hover */
+    transform: translateY(-3px); /* Lift effect */
 }
 
 .link p {
@@ -76,88 +78,97 @@ header p {
 }
 
 .link i {
-    font-size: 24px;
+    font-size: 24px; /* Icon size */
     z-index: 2;
 }
 
+/* Animated gradient background for link buttons */
 .linkBackground {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #4a0e8f, #00d4ff, #ff69b4, #ffa500);
-    background-size: 200% 200%;
-    animation: gradientShift 5s ease infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: linear-gradient(45deg, #4a0e8f, #00d4ff, #ff69b4, #ffa500); /* Gradient colors */
+    background-size: 200% 200%; /* Enlarges gradient for animation */
+    animation: gradientShift 5s ease infinite; /* Smooth animation cycling */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Fades in on hover */
 }
+
+/* Keyframes for shifting gradient effect on links */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+/* Increases gradient opacity on hover for .link elements */
 .link:hover .linkBackground {
-    opacity: 0.5; 
+    opacity: 0.5;
 }
 
-/* Starfield Background */
+/* Full-page starfield background effect */
 .starfield {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    z-index: -1;
+    overflow: hidden; /* Prevents scrollbars */
+    z-index: -1; /* Places background below content */
 }
 
+/* Individual star styles in starfield */
 .stars {
     position: absolute;
     width: 2px;
     height: 2px;
-    border-radius: 50%;
-    box-shadow: 0 0 3px 1px currentColor;
+    border-radius: 50%; /* Circular stars */
+    box-shadow: 0 0 3px 1px currentColor; /* Glow effect for stars */
 }
 
+/* Twinkling effect animation for stars */
 @keyframes twinkle {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
 }
 
+/* Moving stars effect for background animation */
 @keyframes move {
     0% { transform: translateY(0); }
     100% { transform: translateY(2000px); }
 }
 
-/* Responsive Design */
+/* Responsive Design for Small Screens */
 @media (max-width: 480px) {
     .container {
-        width: 95%;
+        width: 95%; /* Adjusts container width on smaller screens */
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 20px; /* Reduces title font size on smaller screens */
     }
 
     .link {
-        padding: 12px;
+        padding: 12px; /* Adjusts padding for buttons */
     }
 }
-/* Custom Cursor Styles */
+
+/* Cursor styles for hiding default pointer and implementing custom cursor */
 body, button, a, input, .link {
-    cursor: none; /* Applies the same hidden cursor style on buttons and links */
+    cursor: none; /* Hides default cursor on interactive elements */
 }
 
+/* Custom cursor dot styling */
 .custom-cursor {
     position: fixed;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
-    pointer-events: none; /* Ensures cursor doesn't block interactions */
+    border-radius: 50%; /* Circular cursor */
+    pointer-events: none; /* Allows interactions with underlying elements */
     transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    z-index: 9999; /* Ensures it appears above all other elements */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth transitions */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); /* Glow effect */
 }
