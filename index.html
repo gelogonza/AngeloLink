@@ -78,5 +78,28 @@
 
         createStars();
     </script>
+<script>
+    // Colors for the custom cursor dot
+    const COLORS = ['#ffffff', '#00a8ff', '#ffa500', '#ff69b4'];
+    let colorIndex = 0;
+
+    // Create the custom cursor element
+    const customCursor = document.createElement('div');
+    customCursor.classList.add('custom-cursor');
+    document.body.appendChild(customCursor);
+
+    // Function to update the cursor position
+    document.addEventListener('mousemove', (event) => {
+        customCursor.style.left = `${event.clientX}px`;
+        customCursor.style.top = `${event.clientY}px`;
+    });
+
+    // Periodically change the cursor color
+    setInterval(() => {
+        colorIndex = (colorIndex + 1) % COLORS.length;
+        customCursor.style.backgroundColor = COLORS[colorIndex];
+        customCursor.style.boxShadow = `0 0 6px ${COLORS[colorIndex]}`;
+    }, 500); // Change color every 500ms
+</script>
 </body>
 </html>
