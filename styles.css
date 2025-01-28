@@ -9,7 +9,7 @@
 body {
     font-family: 'Poppins', sans-serif; /* Sets main font */
     color: #ffffff; /* Text color */
-    background-color: #FFFFFF; /* Background color */
+    background-color: #000000; /* Background color */
     display: flex;
     justify-content: center;
     align-items: center;
